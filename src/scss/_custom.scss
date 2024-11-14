@@ -1,0 +1,33 @@
+//-- Import Variables
+@import "variables";
+
+// Import Bootstrap's SCSS
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+//-- Container do App
+.container-app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: $bg-app;
+}
+
+//-- Container da página principal
+.container-home {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 90vw;
+    height: 90vh;
+
+    background-color: $bg-game;
+
+    border-radius: 25px;
+}

@@ -1,0 +1,28 @@
+// Default variables for Bootstrap app
+
+// Colors
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$info: #17a2b8;
+$warning: #ffc107;
+$danger: #dc3545;
+$light: #f8f9fa;
+$dark: #343a40;
+
+// Background colors
+$bg-game: #DB9118;
+$bg-app: #DBBC61;
+
+// Breakpoints
+$grid-breakpoints: (xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px);
+
+// Container widths
+$container-max-widths: (sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px);
