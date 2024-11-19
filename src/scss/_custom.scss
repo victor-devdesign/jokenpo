@@ -31,3 +31,70 @@
 
     border-radius: 25px;
 }
+
+//-- Container do temporizador / inimigo
+.container-default {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100px;
+    height: fit-content;
+
+    margin: 20px;
+    padding: 20px;
+
+    background-color: $bg-app;
+    border-radius: 25px;
+
+    i,
+    h2 {
+        margin: 0;
+    }
+}
+
+//-- Container do display
+.container-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: fit-content;
+    margin: 20px;
+
+    background-color: $bg-show;
+    border-radius: 25px;
+
+    h1 {
+        margin: 20px;
+    }
+}
+
+//-- Botão de seleção de jogada
+.btn-weapon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100px;
+    height: 100px;
+
+    background-color: $bg-show;
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: all 0.3s;
+
+    &:hover {
+        transform: scale(1.3);
+    }
+
+    img {
+        width: 80%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+    }
+}
