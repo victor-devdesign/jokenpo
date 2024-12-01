@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const PlayGame = () => {
     const location = useLocation();
@@ -31,6 +31,7 @@ const PlayGame = () => {
                         <div className="col-12 col-md-8 mb-5 mt-5 d-flex justify-content-center">
                             <div className="container-display">
                                 <h1>Escolha sua jogada!</h1>
+                                <h3>{userChoice}</h3>
                             </div>
                         </div>
                         <div className="col-12 col-md-4 mb-5 mt-5">
