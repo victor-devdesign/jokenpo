@@ -145,7 +145,7 @@ const PlayGame = () => {
     return (
         <div className="container-home">
             <div className="row">
-                <div className="col-12 d-flex justify-content-center m-5">
+                <div className="col-12 d-flex justify-content-center mt-5 mb-5">
                     <div className="container-default">
                         <h2>{timer}</h2>
                     </div>
@@ -158,15 +158,16 @@ const PlayGame = () => {
                 </div>
                 <div className="col-12 text-center">
                     {enemyChoice && (
-                        <img src={`/img/weapons/${enemyChoice}.png`} alt={enemyChoice} />
+                        <img src={`/img/weapons/${enemyChoice}.png`} alt={enemyChoice} width="50%" />
                     )}
                 </div>
-                <div className="col-12 d-flex justify-content-center">
+                <div className="col-12 d-flex justify-content-center gap-5">
                     {choices.map((choice) => (
                         <button
                             key={choice}
                             onClick={() => handleChoice(choice)}
-                            className="btn btn-weapon m-4"
+                            className="btn btn-weapon mt-4 mb-4"
+                            disabled={enemyChoice !== null}
                         >
                             <img src={`/img/weapons/${choice}.png`} alt={choice} />
                         </button>
@@ -174,7 +175,7 @@ const PlayGame = () => {
                 </div>
                 <div className="col-12 text-center">
                     <Link to="/results">
-                        <button className="btn btn-primary btn-large">Ver Resultados</button>
+                        <button className="btn btn-secondary btn-large mt-4 mb-4e">Ver Resultados</button>
                     </Link>
                 </div>
             </div>
