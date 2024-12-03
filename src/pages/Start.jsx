@@ -1,7 +1,11 @@
-import React from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Start = () => {
+    useEffect(() => {
+        localStorage.setItem('results', null);
+    });
+
     return (
         <div className="container-Start">
             <div className="row">
