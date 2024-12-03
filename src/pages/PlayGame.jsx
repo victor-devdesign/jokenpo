@@ -25,15 +25,21 @@ const PlayGame = () => {
      * Inicia a configuração inicial do jogo ao montar o componente.
      */
     useEffect(() => {
-        initTurn();
+        let results = JSON.parse(localStorage.getItem('results')) || [],
+            lastTurn = 0;
+        if (results.length > 0) {
+            lastTurn = results[results.length - 1].turn;
+        }
+        initTurn(lastTurn);
         return () => clearInterval(timerInterval.current); // Limpeza do intervalo ao desmontar o componente
     }, []);
 
     /**
      * Inicia uma nova rodada.
      */
-    const initTurn = () => {
-        setTurn(turn + 1); // Incrementa o número da rodada
+    const initTurn = (current) => {
+        current = current > 0 ? current : turn;
+        setTurn(current + 1); // Incrementa o número da rodada
         setTitle("Escolha sua jogada!"); // Define o título para a jogada do usuário
         resetTimer(); // Reinicia o temporizador
         setEnemyChoice(null); // Reseta a escolha do oponente
@@ -104,14 +110,19 @@ const PlayGame = () => {
         setEnemyChoice(enemyMove);
 
         // Determina o vencedor da rodada
-        const winner = getWinner(userMove, enemyMove);
+        let winner = getWinner(userMove, enemyMove),
+            title = "Empate!";
         if (winner === 'user') {
-            setTitle("Você venceu!");
+            title = "Você venceu!";
         } else if (winner === 'enemy') {
-            setTitle("Você perdeu!");
-        } else {
-            setTitle("Empate!");
+            title = "Você perdeu!";
         }
+        setTitle(title);
+
+        //-- Salva o resultado da rodada no localStorage
+        let results = JSON.parse(localStorage.getItem('results')) || [];
+        results.push({ turn, userMove, enemyMove, winner });
+        localStorage.setItem('results', JSON.stringify(results));
 
         // Inicia uma nova rodada após um intervalo
         setTimeout(() => {
@@ -158,7 +169,7 @@ const PlayGame = () => {
                 </div>
                 <div className="col-12 text-center">
                     {enemyChoice && (
-                        <img src={`/img/weapons/${enemyChoice}.png`} alt={enemyChoice} width="50%" />
+                        <img src={`/img/weapons/${enemyChoice}.png`} alt={enemyChoice} width="25%" />
                     )}
                 </div>
                 <div className="col-12 d-flex justify-content-center gap-5">
@@ -175,7 +186,7 @@ const PlayGame = () => {
                 </div>
                 <div className="col-12 text-center">
                     <Link to="/results">
-                        <button className="btn btn-secondary btn-large mt-4 mb-4e">Ver Resultados</button>
+                        <button className="btn btn-secondary btn-large mt-4 mb-4">Ver Resultados</button>
                     </Link>
                 </div>
             </div>
