@@ -169,7 +169,7 @@ const PlayGame = () => {
                 </div>
                 <div className="col-12 text-center">
                     {enemyChoice && (
-                        <img src={`/img/weapons/${enemyChoice}.png`} alt={enemyChoice} width="25%" />
+                        <img src={`/img/weapons/${enemyChoice}_enemy.png`} alt={enemyChoice} width="25%" />
                     )}
                 </div>
                 <div className="col-12 d-flex justify-content-center gap-5">

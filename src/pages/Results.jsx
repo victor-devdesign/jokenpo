@@ -57,7 +57,7 @@ const Results = () => {
                                     </div>
                                     <div className="d-flex align-items-center mb-2">
                                         <p className="card-text m-0 me-2">Oponente:</p>
-                                        <img src={`/img/weapons/${result.enemyMove}.png`} alt={result.enemyMove} width="30px" height="auto" />
+                                        <img src={`/img/weapons/${result.enemyMove}_enemy.png`} alt={result.enemyMove} width="30px" height="auto" />
                                     </div>
                                 </div>
                             </div>
